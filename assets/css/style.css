@@ -33,7 +33,7 @@ body{
     background: #fff;
     color: #3498db;
     font-size: 18px;
-    padding: 12px 50px;
+    padding: 14px 70px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: 700;
@@ -311,6 +311,20 @@ border: 3px solid rgb(210, 210, 210);
     padding: 10px 18px;
     font-size: 14px;
   }
+}
+
+.ta_pss{
+    font-size: 24px;
+    color: #333;
+}
+.pss{
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    width: 250px;
 }
 
 

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>تسجيل الدخول</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap');
+    body {
+        font-family: "IBM Plex Sans Arabic", sans-serif;
+
+        background-color: #f4f4f4;
+        background-image: url(exo2.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        
+    }
+    
+    h2 {
+        color: #333;
+    }
+    
+    input[type="password"] {
+        padding: 12px 20px;
+        border-radius: 30px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        outline: none;
+        transition: 0.3s;
+        width: 250px
+        
+    }
+    
+    
+    button {
+    background: #fff;
+    color: #3498db;
+    font-size: 18px;
+    padding: 14px 70px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+     border: 1px solid #363535;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+/* الطبقة المتحركة */
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #3498db;
+    z-index: -1;
+    transition: 0.3s ease;
+}
+
+/* عند المرور */
+button:hover {
+    color: #fff;
+}
+
+/* تمدد اللون */
+button:hover::before {
+    width: 100%;
+}
+</style>
+
+<body style="text-align:center; margin-top:100px;">
+
+  <h2>دخول الموظفين</h2>
+
+  <input style="padding: 12px 20px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    width: 250px;" type="password" id="pass" placeholder="أدخل الرقم السري">
+  <br><br>
+
+  <button  onclick="check()">دخول</button>
+
+  <script>
+    // لو مسجل دخول يرجعه للرئيسية
+    if (localStorage.getItem("auth") === "true") {
+      window.location.href = "index.html";
+    }
+
+    function check() {
+      const password = document.getElementById("pass").value;
+
+      if (password === "1234") {
+        localStorage.setItem("auth", "true");
+        window.location.href = "index.html";
+      } else {
+        alert("❌ الرقم السري غير صحيح");
+      }
+    }
+  </script>
+
+</body>
+</html>

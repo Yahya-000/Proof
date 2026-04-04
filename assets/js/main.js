@@ -1,3 +1,8 @@
+// حماية الصفحات
+if (localStorage.getItem("auth") !== "true") {
+  window.location.href = "login.html";
+}
+
 console.log('Accounting Training System Ready');
 
 
@@ -21,7 +26,29 @@ searchInput.addEventListener("input" , function(){
     });
 });
 
+function check() {
+        const password = document.getElementById("pass").value;
 
+        if (password === "1234") {
+        localStorage.setItem("auth", "true"); // حفظ الدخول
+        window.location.href = "index.html";
+        } else {
+        alert("❌ الرقم السري غير صحيح");
+        }
+    }
+
+    function logout() {
+  localStorage.removeItem("auth");
+  window.location.href = "login.html";
+}
+
+// حماية الصفحات (ما تشمل صفحة تسجيل الدخول)
+if (
+  localStorage.getItem("auth") !== "true" &&
+  !window.location.pathname.includes("login.html")
+) {
+  window.location.href = "login.html";
+}
 
 // const darkBtn = document.getElementById("darkToggle");
 
