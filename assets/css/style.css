@@ -205,8 +205,10 @@ iframe{
   bottom: 20px;
   right: 20px;
   background: #3498db;
+  border: none;
+  
   color: white;
-  padding: 12px 20px;
+  padding: 17px 30px;
   border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
@@ -375,3 +377,32 @@ footer {
     border-radius: 50%;
     cursor: pointer;
 } */
+
+/* صفحة التحميل */
+
+.dots-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fcfafa  ; /* لون الخلفية */
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  z-index: 99999; /* رقم عالي جداً لضمان الأولوية */
+  transition: opacity 0.4s ease; /* تنعيم الإخفاء */
+}
+
+/* كود الأنميشن الخاص بك */
+.dot {
+  height: 20px; width: 20px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background-color: #b3d4fc;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(0.8); background-color: #494a4b; }
+  50% { transform: scale(1.2); background: linear-gradient(135deg, #4c4e4d, #151616); }
+}

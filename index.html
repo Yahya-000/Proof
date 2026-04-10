@@ -8,6 +8,14 @@
     <link rel="short icon" href="exo2.png" />
   </head>
   <body>
+    <section class="dots-container" id="global-loader">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </section>
+
     <header class="hero">
       <!-- <button id="darkToggle" class="dark-btn">🌙</button> -->
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,5 +36,33 @@
 
     <button class="back" onclick="logout()">تسجيل خروج</button>
     <script src="assets/js/main.js"></script>
+    <!-- loading -->
+    <script>
+      function handleLoader() {
+        const loader = document.getElementById("global-loader");
+
+        if (loader) {
+          // ننتظر ثانية واحدة (1000ms)
+          setTimeout(() => {
+            loader.style.opacity = "0"; // يبدأ بالتلاشي
+
+            // ننتظر انتهاء الأنميشن (0.4 ثانية) ثم نخفيه تماماً من المتصفح
+            setTimeout(() => {
+              loader.style.display = "none";
+            }, 400);
+          }, 500);
+        }
+      }
+
+      // السطر الأهم: تشغيل الدالة فور تحميل نافذة المتصفح
+      window.addEventListener("load", handleLoader);
+
+      // إضافة احتياطية: لو استخدمت زر "الرجوع" في المتصفح يختفي أيضاً
+      window.addEventListener("pageshow", (event) => {
+        if (event.persisted) {
+          handleLoader();
+        }
+      });
+    </script>
   </body>
 </html>
