@@ -121,9 +121,22 @@ body {
   pointer-events: none;
 }
 .lesson {
+  
   max-width: 800px;
   margin: auto;
   padding: 30px;
+}
+
+
+.lesson section{
+  
+  margin: 20px;
+}
+.lesson .point  {
+  display: flex; /* تحويل الحاوية إلى نظام الفليكس */
+  justify-content: space-around; /* توزيع القوائم بمسافات متساوية */
+  gap: 20px; /* إضافة مسافة بين القائمتين */
+  margin: 20px;
 }
 video,
 iframe {
