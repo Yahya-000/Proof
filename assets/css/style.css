@@ -308,6 +308,16 @@ iframe {
     width: 100%;
     height: auto;
   }
+  .lesson section {
+    margin: 15px;
+  }
+  .lesson .point {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .lesson ul li {
+    font-size: 10px;
+  }
 
   .hero h1 {
     font-size: 24px;
