@@ -315,9 +315,24 @@ iframe {
     flex-direction: column;
     gap: 15px;
   }
-  .lesson ul li {
-    font-size: 10px;
+  .lesson ol li {
+    font-size: 17px;
+    margin-bottom: 10px;
   }
+  .lesson .point ul {
+    padding-left: 20px;
+  }
+  .lesson .point ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .alert {
+    padding: 15px;
+    font-size: 14px;
+  }
+  
+  
+  
 
   .hero h1 {
     font-size: 24px;
