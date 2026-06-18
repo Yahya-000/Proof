@@ -174,30 +174,28 @@
       }
     </style>
     <div class="glass-container">
-      <h2>دخول الموظفين</h2>
-      <form action>
-        <div class="input-group">
-          <input type="password" id="pass" required />
-          <label>أدخل الرقم السري</label>
-        </div>
-      </form>
-
-      <button onclick="check()">دخول</button>
+  <h2>دخول الموظفين</h2>
+  <form onsubmit="event.preventDefault(); check('1999');">
+    <div class="input-group">
+      <input type="password" id="pass" required />
+      <label>أدخل الرقم السري</label>
     </div>
+    <button type="submit">دخول</button>
+  </form>
+</div>
 
-    <script>
-      function check() {
-        const password = document.getElementById("pass").value;
+<script>
+  function check(correctPassword) {
+    const password = document.getElementById("pass").value;
 
-        if (password === "1234") {
-          localStorage.setItem("auth", "true"); // حفظ الدخول
-          window.location.href = "index.html";
-        } else {
-          alert("❌ الرقم السري غير صحيح");
-        }
-      }
-
-
-    </script>
+    if (password === correctPassword) {
+      localStorage.setItem("auth", "true"); // حفظ الدخول
+      window.location.href = "index.html";
+    } else {
+      alert("❌ الرقم السري غير صحيح");
+    }
+  }
+</script>
+    
   </body>
 </html>
