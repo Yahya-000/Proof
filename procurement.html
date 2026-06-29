@@ -30,55 +30,49 @@
     <input type="text" id="searchInput" class="search" placeholder="ابحث عن شرح (مثال:المشتريات داخلية)🔍">
 
     <!--القائمة 1-->
-    <main class="lesson">
-      <video controls>
-            <source src="video/ADD.mp4" type="video/mp4">
-        </video>
-        <section>
-            <h3>الخطوات</h3>
-            <ol>
-                <li>الدخول إلى النظام المحاسبي</li>
-                <li>اختيار القيود اليومية</li>
-                <li>إدخال الحسابات</li>
-                <li>تحديد المبلغ</li>
-                <li>حفظ القيد</li>
-            </ol>
-        </section>
-        <section class="alert">
-            <h3>⚠️ أخطاء شائعة</h3>
-            <ul>
-                <li>عكس المدين والدائن</li>
-                <li>عدم تطابق المبلغ</li>
-            </ul>
-        </section>
+    <main class="lesson" data-aos="fade-up">
+      <h2 class="titl">شرح المشتريات  في اودو </h2>
+      <div class="video-container">
+        <iframe
+         src="https://www.youtube.com/embed/HJkdNIv2m3M?"
+          frameborder="0"
+          allowfullscreen
+        >
+        </iframe>
+      </div>
+      <!-- <section class="point">
+        <div data-aos="fade-up">
+          <h3>خطوات فتح نقطة البيع</h3>
+          <ol>
+            <li>الدخول على نقطة البيع.</li>
+            <li>اختيار الجلسة.</li>
+            <li>فتح كاشير.</li>
+            <li>إدخال الرصيد الافتتاحي.</li>
+            <li>تأكيد فتح الجلسة.</li>
+          </ol>
+        </div>
+        <div data-aos="fade-up">
+          <h3>خطوات إغلاق نقطة البيع</h3>
+          <ol>
+            <li>الذهاب للجلسة.</li>
+            <li>الضغط على الثلاث نقاط.</li>
+            <li>إغلاق الجلسة.</li>
+            <li>إدخال الكاش الفعلي.</li>
+            <li>تأكيد إغلاق الجلسة.</li>
+          </ol>
+        </div>
+      </section> -->
+      <section class="alert" data-aos="fade-up">
+        <h3>⚠️ أخطاء شائعة</h3>
+        <ul>
+          <li>التصديق على الكميات دون التأكد من مطابقتها للطلب.</li>
+          <li>عدم تحديث سعر الصرف عند الشراء بعملة أخرى.</li>
+          <li>عدم إزالة الضريبة عن المورد المعفى من الضريبة.</li>
+          
+        </ul>
+      </section>
     </main>
-
-    <!--القائمة 1-->
-    <main class="lesson">
-        <div class="ss"></div>
-        <h2 class="titl">شرح مشتريات خارجي</h2>
-        <video controls>
-            <source src="video/ADD.mp4" type="video/mp4">
-        </video>
-        <section>
-            <h3>الخطوات</h3>
-            <ol>
-                <li>الدخول إلى النظام المحاسبي</li>
-                <li>اختيار القيود اليومية</li>
-                <li>إدخال الحسابات</li>
-                <li>تحديد المبلغ</li>
-                <li>حفظ القيد</li>
-            </ol>
-        </section>
-        <section class="alert">
-            <h3>⚠️ أخطاء شائعة</h3>
-            <ul>
-                <li>عكس المدين والدائن</li>
-                <li>عدم تطابق المبلغ</li>
-            </ul>
-        </section>
-    </main>
-
+   
     <a href="operations.html" class="back">⬅ الرجوع</a>
 
     <footer>جميع الحقوق محفوظة لشركة العيسائي اكسو التجارية © 2026</footer>
@@ -110,6 +104,15 @@
         if (event.persisted) {
           handleLoader();
         }
+      });
+    </script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,  
+        once: true,     
+        offset: 100     
       });
     </script>
     </body>
