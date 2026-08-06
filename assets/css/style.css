@@ -77,7 +77,12 @@ body {
 }
 
 .page-header {
-  background: linear-gradient(135deg, #4c4e4d, #151616);
+  background: rgba(11, 16, 28, 0.801);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   color: #fff;
   padding: 20px;
   display: grid;
@@ -88,7 +93,24 @@ body {
   margin: 0;
   text-align: center;
   font-size: 22px;
+  transition:  0.3s ;
+  
 }
+
+.page-header h2:hover {
+  transform: translateY(-10px);
+
+}
+
+.page-header .logo {
+  width: 150px;
+  justify-self: center;
+  transition: transform 0.3s ease;
+}
+.page-header .logo:hover { 
+  transform: scale(1.05);
+}
+
 
 .grid {
   display: grid;

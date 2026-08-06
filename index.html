@@ -4,10 +4,11 @@
   <head>
     <meta charset="UTF-8" />
     <title>دليل النظام المحاسبي اودو</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="ind.css" />
     <link rel="short icon" href="exo2.png" />
   </head>
   <body>
+
     <section class="dots-container" id="global-loader">
       <div class="dot"></div>
       <div class="dot"></div>
@@ -16,53 +17,89 @@
       <div class="dot"></div>
     </section>
 
-    <header class="hero">
-      <!-- <button id="darkToggle" class="dark-btn">🌙</button> -->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <div class="video-bg-container">
+      <video autoplay loop muted playsinline poster="exo2.png">
+        <source src="Floating_glass_dashboard_digital…_202607231225.mp4" type="video/mp4" />
+      </video>
+      <div class="video-overlay"></div>
+    </div>
 
-      <img src="exo2.png" alt="شعار الشركة" class="logo" />
+    <div class="main-content">
+      <div></div>
 
-      <h1>دليل النظام المحاسبي Odoo</h1>
-      <p>شرح مبسّط للأعمال اليومية لموظفي الشركة خطوة بخطوة</p>
-      <a href="operations.html" class="btn">ابدأ الآن</a>
-    </header>
-    <section class="features">
-      <div class="feature">🎥 شروحات فيديو</div>
-      <div class="feature">📝 خطوات واضحة</div>
-      <div class="feature">⚠️ أخطاء شائعة</div>
-    </section>
-    <button class="back" onclick="logout()">تسجيل خروج</button>
-    <footer>جميع الحقوق محفوظة لشركة العيسائي اكسو التجارية © 2026</footer>
+      <header class="hero-section">
+        <img src="exo2.png" alt="شعار الشركة" class="logo" />
+        <h1>دليل النظام المحاسبي Odoo</h1>
+        <p id="typewriter-text"></p>
+        <a href="operations.html" class="btn">ابدأ الآن</a>
+      </header>
 
-    <button class="back" onclick="logout()">تسجيل خروج</button>
+      <div class="features-container">
+        <div class="feature">🎥 شروحات فيديو</div>
+        <div class="feature">📝 خطوات واضحة</div>
+        <div class="feature">⚠️ أخطاء شائعة</div>
+      </div>
+
+        
+
+      <div class="bottom-bar">
+        
+        <footer>جميع الحقوق محفوظة لشركة العيسائي اكسو التجارية © 2026</footer><button class="back" onclick="logout()">تسجيل خروج</button>
+      </div>
+    </div>
+
     <script src="assets/js/main.js"></script>
-    <!-- loading -->
     <script>
+      const textElement = document.getElementById('typewriter-text');
+      const phrases = [
+        "شرح مبسّط للأعمال اليومية لموظفي الشركة خطوة بخطوة",
+        "تعلم كيفية إدارة الفواتير من خلال شروحات فيديو بسهولة",
+        "دليلك الكامل لإتقان نظام Odoo المحاسبي"
+      ];
+
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function type() {
+        const current = phrases[phraseIndex];
+        
+        if (isDeleting) {
+          textElement.innerHTML = current.substring(0, charIndex - 1) + '<span class="typewriter-cursor"></span>';
+          charIndex--;
+        } else {
+          textElement.innerHTML = current.substring(0, charIndex + 1) + '<span class="typewriter-cursor"></span>';
+          charIndex++;
+        }
+
+        let speed = isDeleting ? 35 : 75;
+
+        if (!isDeleting && charIndex === current.length) {
+          speed = 2200;
+          isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          speed = 400;
+        }
+
+        setTimeout(type, speed);
+      }
+
+      document.addEventListener('DOMContentLoaded', type);
+
       function handleLoader() {
         const loader = document.getElementById("global-loader");
-
         if (loader) {
-          // ننتظر ثانية واحدة (1000ms)
           setTimeout(() => {
-            loader.style.opacity = "0"; // يبدأ بالتلاشي
-
-            // ننتظر انتهاء الأنميشن (0.4 ثانية) ثم نخفيه تماماً من المتصفح
-            setTimeout(() => {
-              loader.style.display = "none";
-            }, 400);
+            loader.style.opacity = "0";
+            setTimeout(() => { loader.style.display = "none"; }, 400);
           }, 500);
         }
       }
-
-      // السطر الأهم: تشغيل الدالة فور تحميل نافذة المتصفح
       window.addEventListener("load", handleLoader);
-
-      // إضافة احتياطية: لو استخدمت زر "الرجوع" في المتصفح يختفي أيضاً
-      window.addEventListener("pageshow", (event) => {
-        if (event.persisted) {
-          handleLoader();
-        }
-      });
+      window.addEventListener("pageshow", (e) => { if (e.persisted) handleLoader(); });
+    
     </script>
   </body>
 </html>
